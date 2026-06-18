@@ -4,9 +4,7 @@
 #coluna 2 - Quantidade em Estoque 
 #coluna 3 - Localização 
 
-estoque = [
-    [0, "arroz", 33, 12]
-]
+estoque = []
 id = 0  
 
 #funções:
@@ -25,14 +23,14 @@ def adicionar_produto():
             nomeProcurado = i
             print(f"Esse produto já está no estoque!")
 
-        if nomeProcurado == -1:
+    if nomeProcurado == -1:
 
-            id = id + 1
-            qntEstoque = int(input("Insira a quantidade do produto presente no estoque: "))
-            localizacao = input("Insira onde se localiza o produto: ")
+        id = id + 1
+        qntEstoque = int(input("Insira a quantidade do produto presente no estoque: "))
+        localizacao = input("Insira onde se localiza o produto: ")
 
-            estoque.append([id, nome, qntEstoque, localizacao])
-            print("Produto registrado com sucesso!")
+        estoque.append([id, nome, qntEstoque, localizacao])
+        print("Produto registrado com sucesso!")
 
     travarMenu()
 
@@ -81,19 +79,13 @@ def atualizarQNTproduto():
 
             else:
                 estoque[i][2] = (novaqnt)
-                print(f"Quantidade do {produtoProcurado} redefinido para: {novaqnt} ")
+                print(f"Quantidade do {produto} redefinido para: {novaqnt} ")
                 
 
         else:
             print("Produto não cadastrado!")
 
     travarMenu()
-
-
-
-            
-
-     
     
 
 ##menu
