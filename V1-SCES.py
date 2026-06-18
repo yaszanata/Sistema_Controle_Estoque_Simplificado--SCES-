@@ -4,6 +4,9 @@
 #coluna 2 - Quantidade em Estoque 
 #coluna 3 - Localização 
 
+
+#Feito em conjunto com Yasmin e Helena
+
 estoque = [
     [0, "Arroz", 34, 1], 
     [1, "Uva", 12, 2], 
@@ -33,10 +36,10 @@ def adicionar_produto():
         id = id + 1
         qntEstoque = int(input("Insira a quantidade do produto presente no estoque: "))
 
-        if qntEstoque <= 0:
+        if qntEstoque <= 0: #caso o número seja negativo
             print("Quantidade insuficiente! Não é permitido números negativos.")
             travarMenu()
-            return
+            return #"Quebra" a função
         
         
     localizacao = input("Insira a localização do produto: ")
