@@ -4,13 +4,19 @@
 #coluna 2 - Quantidade em Estoque 
 #coluna 3 - Localização 
 
-estoque = []
-id = 0  
+estoque = [
+    [0, "Arroz", 34, 1], 
+    [1, "Uva", 12, 2], 
+    [2, "Morango", 5, 9], 
+    [3, "Feijão", 23, 1], 
+           ]
+id = 3 
 
 #funções:
 def travarMenu():
     input("\nPressione <ENTER> para continuar...")
 
+#1
 def adicionar_produto():
     global estoque
     global id 
@@ -23,8 +29,7 @@ def adicionar_produto():
             nomeProcurado = i
             print(f"Esse produto já está no estoque!")
 
-    if nomeProcurado == -1:
-
+    if nomeProcurado == -1: 
         id = id + 1
         qntEstoque = int(input("Insira a quantidade do produto presente no estoque: "))
         localizacao = input("Insira onde se localiza o produto: ")
@@ -34,7 +39,7 @@ def adicionar_produto():
 
     travarMenu()
 
-
+#2
 def lista_estoque():
     print("-------------ESTOQUE--------------")
     for linha in estoque:
@@ -42,6 +47,7 @@ def lista_estoque():
 
     travarMenu()
 
+#3
 def buscar_produto():
     global id
     produtoProcurado = int(input("Insira o ID do produto que deseja procurar: "))
@@ -51,39 +57,40 @@ def buscar_produto():
         if(estoque[i][0] == produtoProcurado): #verifica se a posição do id é igual ao id procurado
             colunaProcurada = i
             
-            print(f"\nO ID {produtoProcurado} procurado está na linha {colunaProcurada + 1}")
+            print(f"\nO ID {produtoProcurado} procurado está na linha {colunaProcurada}")
             print(estoque[i])
+            break
     
     if colunaProcurada == -1:
         print("O ID procurado não está registrado!")
 
     travarMenu()
 
+#4
 def atualizarQNTproduto():
     global qntEstoque
     global estoque
     produtoProcurado = -1
     qntEstoque = 0
 
-    produto = input("Insira o produto que deseja alterar a quantidade do estoque: ")
-    
+    id = int(input("Insira o ID que deseja alterar a quantidade do estoque: "))
 
     for i in range(len(estoque)): 
-        if(estoque[i][1] == produto):
+        if(estoque[i][0] == id):
             produtoProcurado = i
             novaqnt = int(input("Insira a nova quantidade presente no estoque: "))
 
-            if novaqnt <= 0:
+            if novaqnt <= 0: #exclui o produto
                 estoque.pop(produtoProcurado)
                 print("O produto foi excluído do estoque!")
 
             else:
                 estoque[i][2] = (novaqnt)
-                print(f"Quantidade do {produto} redefinido para: {novaqnt} ")
-                
-
-        else:
-            print("Produto não cadastrado!")
+                print(f"Quantidade do {id} redefinido para: {novaqnt} ")
+                    
+    if produtoProcurado == -1: ##confirma que o ID no existe
+        print("Produto não cadastrado!")
+        
 
     travarMenu()
     
@@ -110,5 +117,5 @@ while True: ##roda para sempre
         atualizarQNTproduto()
 
     elif opcao == "5":
+       print("Você saiu do estoque")
        break
-       
