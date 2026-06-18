@@ -32,10 +32,17 @@ def adicionar_produto():
     if nomeProcurado == -1: 
         id = id + 1
         qntEstoque = int(input("Insira a quantidade do produto presente no estoque: "))
-        localizacao = input("Insira onde se localiza o produto: ")
 
-        estoque.append([id, nome, qntEstoque, localizacao])
-        print("Produto registrado com sucesso!")
+        if qntEstoque <= 0:
+            print("Quantidade insuficiente! Não é permitido números negativos.")
+            travarMenu()
+            return
+        
+        
+    localizacao = input("Insira a localização do produto: ")
+
+    estoque.append([id, nome, qntEstoque, localizacao])
+    print("Produto registrado com sucesso!")
 
     travarMenu()
 
