@@ -52,6 +52,7 @@ def buscar_produto():
     for i in range(len(estoque)): 
         if(estoque[i][0] == produtoProcurado): #verifica se a posição do id é igual ao id procurado
             colunaProcurada = i
+            
             print(f"\nO ID {produtoProcurado} procurado está na linha {colunaProcurada + 1}")
             print(estoque[i])
     
@@ -64,28 +65,32 @@ def atualizarQNTproduto():
     global qntEstoque
     global estoque
     produtoProcurado = -1
+    qntEstoque = 0
 
-    produto = input("Insira o produto que deseja alterar a quantidade do estoque:")
-    novaqnt = int(input("Insira a nova quantidade presente no estoque: "))
+    produto = input("Insira o produto que deseja alterar a quantidade do estoque: ")
+    
 
     for i in range(len(estoque)): 
         if(estoque[i][1] == produto):
             produtoProcurado = i
+            novaqnt = int(input("Insira a nova quantidade presente no estoque: "))
 
             if novaqnt <= 0:
                 estoque.pop(produtoProcurado)
-                print(estoque)
+                print("O produto foi excluído do estoque!")
 
-            # else: 
-            #     estoque.append[i][2] = (novaqnt)
-            #     print(estoque)
+            else:
+                estoque[i][2] = (novaqnt)
+                print(f"Quantidade do {produtoProcurado} redefinido para: {novaqnt} ")
+                
+
+        else:
+            print("Produto não cadastrado!")
+
+    travarMenu()
 
 
 
-    # for i in range(len(estoque)): 
-    #     if(estoque[i][1] != produto): #verifica se o produto está cadastrado 
-    #         print("Produto não cadastrado!")
-     
             
 
      
@@ -95,7 +100,7 @@ def atualizarQNTproduto():
     print("\n---------SISTEMA DE ESTOQUE--------")
 while True: ##roda para sempre
    
-    print("\n1- Adicionar produto\n2- Listar todos os produtos  \n3- Buscar produto por ID \n4- Atualizar quantidade do produto no estoque \n5- Remover produto do estoque  \n6- Sair do programa")
+    print("\n1- Adicionar produto\n2- Listar todos os produtos  \n3- Buscar produto por ID \n4- Atualizar quantidade do produto no estoque \n5- Sair do programa")
     opcao = input("R: ")
     print("-----------------------------------\n") 
     
@@ -111,3 +116,7 @@ while True: ##roda para sempre
 
     elif opcao == "4":
         atualizarQNTproduto()
+
+    elif opcao == "5":
+       break
+       
