@@ -1,6 +1,6 @@
 # Sistema de Controle de Estoque Simplificado (SCES) 
 ## Menu interativo que ajuda na organização do estoque
-    Menu interativo que, ao selecionar uma opção, permite adicionar produtos ao estoque informando a quantidade do item e a sua localização. Também é possível modificar a quantidade do produto no estoque a qualquer momento. Este projeto foi desenvolvido durante o curso do SENAI para praticarmos e trabalharmos com a linguagem Python.
+Esse é um MENU interativo que, ao selecionar uma opção, permite adicionar produtos ao estoque informando a quantidade do item e a sua localização. Também é possível modificar a quantidade do produto no estoque a qualquer momento. Este projeto foi desenvolvido durante o curso do SENAI para praticarmos e trabalharmos com a linguagem Python.
 
 ### ESTOQUE:
 - O estoque é organizado da seguinte forma:
