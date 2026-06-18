@@ -86,7 +86,7 @@ def atualizarQNTproduto():
 
             else:
                 estoque[i][2] = (novaqnt)
-                print(f"Quantidade do {id} redefinido para: {novaqnt} ")
+                print(f"Quantidade do ID{id} redefinido para: {novaqnt} ")
                     
     if produtoProcurado == -1: ##confirma que o ID no existe
         print("Produto não cadastrado!")
