@@ -12,7 +12,7 @@ id = 0
 #funções:
 def travarMenu():
     input("\nPressione <ENTER> para continuar...")
-    
+
 def adicionar_produto():
     global estoque
     global id 
@@ -46,21 +46,50 @@ def lista_estoque():
 
 def buscar_produto():
     global id
-    produtoProcurado = input("Insira o ID do produto que deseja procurar: ")
+    produtoProcurado = int(input("Insira o ID do produto que deseja procurar: "))
     colunaProcurada = -1
 
     for i in range(len(estoque)): 
         if(estoque[i][0] == produtoProcurado): #verifica se a posição do id é igual ao id procurado
             colunaProcurada = i
-            print(f"\nO ID {produtoProcurado} procurado está na linha {colunaProcurada}")
-
-        else:
-            ("O ID procurado não está registrado!")
+            print(f"\nO ID {produtoProcurado} procurado está na linha {colunaProcurada + 1}")
+            print(estoque[i])
+    
+    if colunaProcurada == -1:
+        print("O ID procurado não está registrado!")
 
     travarMenu()
 
+def atualizarQNTproduto():
+    global qntEstoque
+    global estoque
+    produtoProcurado = -1
+
+    produto = input("Insira o produto que deseja alterar a quantidade do estoque:")
+    novaqnt = int(input("Insira a nova quantidade presente no estoque: "))
+
+    for i in range(len(estoque)): 
+        if(estoque[i][1] == produto):
+            produtoProcurado = i
+
+            if novaqnt <= 0:
+                estoque.pop(produtoProcurado)
+                print(estoque)
+
+            # else: 
+            #     estoque.append[i][2] = (novaqnt)
+            #     print(estoque)
 
 
+
+    # for i in range(len(estoque)): 
+    #     if(estoque[i][1] != produto): #verifica se o produto está cadastrado 
+    #         print("Produto não cadastrado!")
+     
+            
+
+     
+    
 
 ##menu
     print("\n---------SISTEMA DE ESTOQUE--------")
@@ -81,4 +110,4 @@ while True: ##roda para sempre
         buscar_produto()
 
     elif opcao == "4":
-        print("")
+        atualizarQNTproduto()
